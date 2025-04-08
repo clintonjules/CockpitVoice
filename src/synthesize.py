@@ -8,6 +8,7 @@ api_key = os.getenv("ELEVEN_LABS_API_KEY")
 client = ElevenLabs(api_key=api_key)
 
 def synthesize_text(text, output_path="pilot_voice.wav"):
+    print("Synthesizing voice...")
     audio = client.text_to_speech.convert(
         text=text,
         voice_id="foUTQvYz9ikkh3w3dxSh",
