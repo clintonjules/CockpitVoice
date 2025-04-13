@@ -23,7 +23,7 @@ Cockpit Voice is an open source web application that transforms text or audio re
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/CockpitVoice.git
+   git clone https://github.com/clintonjules/CockpitVoice.git
    cd CockpitVoice
    ```
 
