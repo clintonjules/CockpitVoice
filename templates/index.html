@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CockpitVoice - Pilot Voice Transformation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cockpit Voice</h1>
+            <p>Transform your text or audio into a prototypical pilot's voice</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="text">Text</button>
+                    <button class="tab-btn" data-tab="record">Record</button>
+                    <button class="tab-btn" data-tab="upload">Upload</button>
+                </div>
+
+                <div class="tab-content active" id="text-tab">
+                    <textarea id="input-text" placeholder="Enter your text here..."></textarea>
+                    <button id="process-text-btn" class="primary-btn">Transform</button>
+                </div>
+
+                <div class="tab-content" id="record-tab">
+                    <div class="record-container">
+                        <div id="microphone" class="mic-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div id="recording-status">Click to start recording</div>
+                        <div id="recording-timer">00:00</div>
+                    </div>
+                    <div class="record-controls">
+                        <button id="start-recording" class="primary-btn">Start Recording</button>
+                        <button id="redo-recording" class="secondary-btn" style="display: none;">Redo Recording</button>
+                        <button id="stop-recording" class="secondary-btn" disabled>Stop Recording</button>
+                        <button id="send-recording" class="primary-btn" style="display: none;">Send Recording</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="upload-tab">
+                    <div class="upload-container">
+                        <div class="upload-icon">
+                            <i class="fas fa-paperclip"></i>
+                        </div>
+                        <div class="upload-label">Drag & drop a file or click to browse</div>
+                        <input type="file" id="file-upload" accept=".txt,.wav,.mp3,.flac" hidden>
+                    </div>
+                    <div class="file-info" id="file-info"></div>
+                    <button id="process-file-btn" class="primary-btn" disabled>Transform</button>
+                </div>
+            </div>
+
+            <div class="output-section" id="output-section" style="display: none;">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing your request...</p>
+                </div>
+
+                <div class="result" id="result" style="display: none;">
+                    <div id="transcription-section" style="display: none;">
+                        <h2>Original Transcription</h2>
+                        <div class="transcription-container">
+                            <textarea class="transcription-text" id="transcription-text"></textarea>
+                            <div class="button-center">
+                                <button id="update-transcription" class="primary-btn">Update Transcription</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Transformed Text</h2>
+                    <div class="transformed-text" id="transformed-text"></div>
+                    
+                    <h2>Audio Output</h2>
+                    <div class="audio-player">
+                        <audio id="audio-player" controls></audio>
+                        <div class="button-center">
+                            <button id="download-audio" class="secondary-btn">
+                                <i class="fas fa-download"></i> Download Audio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Cockpit Voice - An open source project for transforming speech into pilot voice</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

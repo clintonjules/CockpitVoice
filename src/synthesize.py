@@ -17,10 +17,10 @@ def synthesize_text(text, output_path="pilot_voice.wav"):
         
         voice_settings=VoiceSettings(
             stability=0.0,
-            similarity_boost=1.0,
-            style=1,
+            similarity_boost=.9,
+            style=.9,
             use_speaker_boost=True,
-            speed=1.0,
+            speed=1,
         )
         
     )

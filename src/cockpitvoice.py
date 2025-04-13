@@ -1,7 +1,7 @@
 import os
-from transcribe import transcribe_audio
-from text_transformation import transform_text
-from synthesize import synthesize_text
+from src.transcribe import transcribe_audio
+from src.text_transformation import transform_text
+from src.synthesize import synthesize_text
 import sys
 
 def run_pipeline(input_data, output_dir="cockpitvoice_outputs", transformed_output="transformed.txt", audio_output="cockpit_voice.wav"):
